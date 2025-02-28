@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function JournalPage() {
-    const [openDropdown, setOpenDropdown] = useState(null);
+type DropdownName = "About This Journal" | "Articles" | "For Authors" | null;
 
-    const toggleDropdown = (dropdown) => {
+export default function JournalPage() {
+    const [openDropdown, setOpenDropdown] = useState<DropdownName>(null);
+
+    const toggleDropdown = (dropdown: DropdownName) => {
         setOpenDropdown(openDropdown === dropdown ? null : dropdown);
     };
 
@@ -63,7 +65,7 @@ export default function JournalPage() {
                         <li key={index} className="relative group">
                             <button
                                 className="text-gray-800"
-                                onClick={() => toggleDropdown(menu.name)}
+                                onClick={() => toggleDropdown(menu.name as DropdownName)}
                             >
                                 {menu.name} ▼
                             </button>
