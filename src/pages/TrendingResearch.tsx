@@ -2,6 +2,7 @@ import React from 'react';
 import volehunt from '../assets/images/volehunt.jpg';
 import emission from '../assets/images/emission.jpg';
 import odor from '../assets/images/odor.jpg';
+import { FaNewspaper, FaChartLine } from "react-icons/fa";
 
 const TrendingResearch = () => {
   const researchItems = [
@@ -57,7 +58,9 @@ const TrendingResearch = () => {
       <div className="max-w-5xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center">
-            <div className="bg-red-500 w-12 h-12 rounded-full mr-4 shadow-lg"></div>
+          <div className="bg-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-200 transition-all duration-300">
+    <FaChartLine className="text-green-500 text-2xl" />
+  </div>
             <h2 className="text-3xl font-bold text-gray-800">Trending Research</h2>
           </div>
         </div>

@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move left infinitely */
+  }
+  
+  .animate-marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+  }
+  
+  .hover\:paused:hover {
+    animation-play-state: paused; /* Stops animation on hover */
+  }
+  
+
+  

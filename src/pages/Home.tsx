@@ -78,54 +78,58 @@ export function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+     
+      <section className="relative bg-cover bg-center text-white h-screen" style={{ backgroundImage: "url('https://www.rmit.edu.au/content/dam/rmit/au/en/partner/hub/space-hub/abstract-satellite.jpg')" }}>
+  <div className="container mx-auto px-4 py-20">
+    <div className="max-w-3xl mx-auto text-center">
+      <h2 className="text-4xl font-bold mb-8">
+        Search for research articles, academic books and more
+      </h2>
+      <div className="relative">
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search by keyword or author"
+          className="w-full px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button className="absolute right-4 top-1/2 transform -translate-y-1/2">
+          <FaSearch className="w-5 h-5 text-gray-500" />
+        </button>
+      </div>
 
-        <div className="container mx-auto px-4 py-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-8">Search for research articles, academic books and more</h2>
-            <div className="relative">
-              <input
-                type="search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by keyword or author"
-                className="w-full px-6 py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                <FaSearch className="w-5 h-5 text-gray-500" />
-              </button>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold">{stat.number}</div>
-                  <div className="text-blue-200">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {stats.map((stat, index) => (
+          <div key={index} className="text-center">
+            <div className="text-3xl font-bold">{stat.number}</div>
+            <div className="text-blue-200">{stat.label}</div>
           </div>
-          <HomePageSections/>
-        </div>
-        
-      </section>
+        ))}
+      </div>
+      
+    </div>
+    <HomePageSections />
+  </div>
+</section>
+
               
-      {/* Brands Section */}
-      <section className="py-12 bg-white">
-        <h2 className="text-2xl font-bold text-center mb-8">Our brands</h2>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {brands.map((brand, index) => (
-              <img 
-                key={index}
-                src={brand.logo}
-                alt={brand.name}
-                className="h-8 object-contain"
-              />
-            ))}
-          </div>
+<section className="py-16 bg-gray-100">
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Brands</h2>
+
+      <div className="relative overflow-hidden">
+        {/* Marquee effect container */}
+        <div className="flex space-x-12 animate-marquee hover:paused">
+          {[...brands, ...brands].map((brand, index) => ( // Duplicate for continuous loop
+            <img
+              key={index}
+              src={brand.logo}
+              alt={brand.name}
+              className="h-16 object-contain transition-transform duration-500 hover:scale-110"
+            />
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
             <CallForPapers/>
             <TrendingResearch/>
       {/* Featured Journals */}

@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaNewspaper, FaChartLine } from "react-icons/fa"; // Import icons
+
 
 const CallForPapers = () => {
   const calls = [
@@ -30,13 +32,18 @@ const CallForPapers = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient"></div>
-      <div className="absolute inset-0 h-1/2 bg-opacity-50 backdrop-blur-lg"></div>
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-[url('https://thumbs.dreamstime.com/b/top-view-phone-some-blank-paper-wooden-floor-copy-space-text-wooden-background-top-view-phone-some-blank-336488897.jpg')] bg-cover bg-center"></div>
+
+      <div className="absolute inset-0 h-1/2 bg-opacity-50 "></div>
       
       <div className="relative z-10 max-w-4xl mx-auto p-8">
         <div className="flex justify-between items-center mb-6"> {/* Header section */}
-          <div className="flex items-center">
-            <div className="bg-white w-12 h-12 rounded-full shadow-lg mr-4"></div> {/* Placeholder for logo */}
+        <div className="flex space-x-4">
+
+          <div className="bg-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-200 transition-all duration-300">
+    <FaNewspaper className="text-blue-500 text-2xl" />
+  </div>
+
             <div>
               <h2 className="text-3xl font-bold text-white">Calls for Papers</h2>
               <p className="text-lg text-gray-200">Log in for personalised recommendations.</p>
